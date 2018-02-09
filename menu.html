@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Javascript Exercises </title>
+</head>
+
+<body>
+
+<h1>CHOICE MENU</h1>
+
+<p style="color: coral">Options Available : <br>
+    option 1 : to get name of employees with salary greater than 5000 <br>
+    option 2 : to get name of employees with salary lesser than 1000 and age greater than 20 <br>
+    option 3 : group employees on the basis of their age <br>
+</p>
+
+
+<button style="color: #222222" onclick="myFunction()">enter it</button>
+
+<p id="demo"></p>
+
+<script>
+
+    var list = [
+        { name: 'Himanshi', age: 20, salary: 800 ,dob: '13/1/2011'},
+        { name: 'mommy', age: 38, salary: 60000 ,dob: '14/2/2010'},
+        { name: 'popo', age: 22, salary: 9000 ,dob: '14/2/2000'},
+        { name: 'ab', age: 25, salary: 5000 ,dob: '15/3/2009' },
+        {name:  'goldy',  age: 90, salary: 500 ,dob: '15/3/2009'}
+    ];
+
+
+    function myFunction() {
+        var opt = prompt("Please enter the your option", " ");
+
+
+        if (opt != null)
+        {
+            document.getElementById("demo").innerHTML = choice(opt);
+        }
+
+    }
+
+    function choice(opt)
+    {
+
+        switch(opt)
+        {
+
+            case '1': funct1();
+
+                break;
+
+            case '2':  funct2();
+
+                break;
+
+            case '3':  funct3();
+
+                break;
+
+            default: document.write("invalid choice");
+                break;
+
+        }
+
+    }
+
+    function funct1()
+    {
+        document.write("<ul>");
+        for(k in list)
+        {
+
+            if(list[k].salary>5000)
+            {
+                document.write("<li>")
+                document.write(list[k].name);
+                document.write("</li>")
+            }
+        }
+        document.write("</ul>");
+    }
+
+    function funct2()
+    {
+        document.write("<ul>");
+        for(m in list)
+        {
+            if((list[m].salary<1000)&&(list[m].age>20))
+            {
+                list[m].salary = 5* list[m].salary;
+                document.write("<li>")
+                document.write("name :"+ list[m].name +" his increment will be :" + list[m].salary);
+                document.write("</li>")
+
+            }
+        }
+        document.write("</ul>");
+    }
+
+
+    function funct3()
+    {
+        document.write("Employees in the age group between 20 -30 years ");
+        document.write("<ul>");
+        for(n in list)
+        {
+
+            if((list[n].age >20)&&(list[n].age < 30))
+
+            {
+                document.write("<li>");
+                document.write(list[n].name);
+                document.write("</li>");
+            }
+
+        }
+        document.write("</br>");
+        document.write("Employees in above 30 age group");
+        document.write("</ul>");
+
+        for(n in list)
+        {
+            if(list[n].age >30)
+
+            {
+                document.write("<li>");
+                document.write(list[n].name);
+                document.write("</li>");
+            }
+
+
+
+        }
+
+        document.write("</ul>");
+
+    }
+
+</script>
+
+</body>
+</html>
