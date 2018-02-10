@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>learning js</title>
+
+</head>
+<script>
+var str=prompt("enter the string");
+function palindrome(str) {
+ var re = /[^A-Za-z0-9]/g;
+ str = str.toLowerCase().replace(re, '');
+ var len = str.length;
+ for (var i = 0; i < len/2; i++) {
+   if (str[i] !== str[len - 1 - i]) {
+     console.log("not a palindrome");
+       return false;
+   
+   }
+ }
+console.log("a palindrome");
+ return true;
+
+}
+palindrome(str);
+</script>
+</html>
